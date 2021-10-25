@@ -1,5 +1,5 @@
 # online-update
-## démarrage rapide
+## Démarrage rapide
 online-update est un programme python permettant de mettre a jour des dossier et de fichier depuis une adresse web.
 ## Mode préconfiguré
 Deux mode sont prévue, le premier permet au créateur d’un programme de pré-configuré online-update pour directement téléchargé depuis une adresse web.\
