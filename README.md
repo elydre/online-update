@@ -12,7 +12,7 @@ le registre d’update référenci tout les dossier et fichier a créer et/ou t�
 ### Création du dossier
 *l’entièreté des chemin de fichier son en relatif par rapport a l’updater*\
 la commande `mkd` suivit du nom du dossier a créé permet de créer un dossier:
-```py
+```
 mkd /mod
 ```
 ### Téléchargement de fichier
