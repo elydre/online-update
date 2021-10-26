@@ -16,6 +16,7 @@
 
 import sys, os
 from urllib.request import urlopen
+from urllib.error import HTTPError
 # relative path
 
 global PATH
@@ -57,7 +58,7 @@ def wget(chem, name, address):
     try:
         open(PATH + chem + name, 'wb').write(urlopen(address).read())
         print(lang["wget done"].format(name))
-    except: print(lang["address err"].format(address))
+    except HTTPError: print(lang["address err"].format(address))
 
 def mkchem(chem):
     dos = chem.split("/")
@@ -81,7 +82,7 @@ def update(chem, updfile):
                 wget(chem, arg[0],arg[1])
             elif commande != "":
                 print(lang["cmd err"].format(commande))
-    except: print(lang["address err"].format(updfile))
+    except HTTPError: print(lang["address err"].format(updfile))
 
 # cli
 
