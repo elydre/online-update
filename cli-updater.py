@@ -16,7 +16,6 @@
 
 import sys, os
 from urllib.request import urlopen
-
 # relative path
 
 global PATH
@@ -32,7 +31,7 @@ fr = {"mkdir done":"dossier {} créé avec succès",
       "mkdir err":"le dossier {} est déjà existant",
       "wget done": "{} téléchargemé avec succès",
       "cmd err": "commande inconnue ici -> {}",
-      "address err" : "adresse invalide",
+      "address err" : "adresse invalide ici -> {}",
       "arg err": "argument inconnu ici -> {}",
       "name err":"registre {} non trouvé dans les road"}
 
@@ -40,7 +39,7 @@ en = {"mkdir done":"folder {} successfully created",
       "mkdir err":"the folder {} is already existing",
       "wget done": "{} successfully downloaded",
       "cmd err": "unknown command here -> {}",
-      "address err" : "invalid address",
+      "address err" : "invalid address here -> {}",
       "arg err": "unknown argument here -> {}",
       "name err":"register {} not found in the road"}
 
@@ -55,8 +54,10 @@ def mkdir(chem, name):
     except FileExistsError: print(lang["mkdir err"].format(name))
 
 def wget(chem, name, address):
-    open(PATH + chem + name, 'wb').write(urlopen(address).read())
-    print(lang["wget done"].format(name))
+    try:
+        open(PATH + chem + name, 'wb').write(urlopen(address).read())
+        print(lang["wget done"].format(name))
+    except: print(lang["address err"].format(address))
 
 def mkchem(chem):
     dos = chem.split("/")
@@ -68,17 +69,19 @@ def mkchem(chem):
 
 def update(chem, updfile):
     mkchem(chem)
-    l = urlopen(updfile).read().decode("utf-8").split("\n")
-    for e in l:
-        comp = str(e).split(" ")
-        commande = comp[0].strip()
-        arg = "".join(comp[1:len(comp)]).split(",")
-        if commande == "mkd":
-            mkdir(chem, arg[0])
-        elif commande == "wgt":
-            wget(chem, arg[0],arg[1])
-        elif commande != "":
-            print(lang["cmd err"].format(commande))
+    try:
+        l = urlopen(updfile).read().decode("utf-8").split("\n")
+        for e in l:
+            comp = str(e).split(" ")
+            commande = comp[0].strip()
+            arg = "".join(comp[1:len(comp)]).split(",")
+            if commande == "mkd":
+                mkdir(chem, arg[0])
+            elif commande == "wgt":
+                wget(chem, arg[0],arg[1])
+            elif commande != "":
+                print(lang["cmd err"].format(commande))
+    except: print(lang["address err"].format(updfile))
 
 # cli
 
