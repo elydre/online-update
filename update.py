@@ -70,9 +70,5 @@ def update(updfile):
         elif commande != "":
             print(lang["cmd err"].format(commande))
 
-if updfile is None:
-    while True:
-        try: update(input("-> "))
-        except: print(lang["address err"])
-else:
+if updfile != None:
     update(updfile)
