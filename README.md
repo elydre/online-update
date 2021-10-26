@@ -19,7 +19,7 @@ lang fr
 `dl` permet de téléchargé un registre directement depuis son adresse
 
 ```
-dl <chemain> <addresse>
+dl <chemin> <adresse>
 dl /main https://raw.githubusercontent.com/pf4-DEV/glade/main/update.txt
 ```
 
@@ -33,7 +33,7 @@ dl /main https://raw.githubusercontent.com/pf4-DEV/glade/main/update.txt
 ### RDL
 `rdl` téléchargé un registre depuis les fichier de redirection:\
 ```
-dl <chemain> + <nom>
+dl <chemin> + <nom>
 dl /main glade
 ```
 
