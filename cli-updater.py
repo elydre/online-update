@@ -28,21 +28,82 @@ road = ["https://raw.githubusercontent.com/pf4-DEV/online-update/main/road/main.
 
 # languages
 
-fr = {"mkdir done":"dossier {} créé avec succès",
-      "mkdir err":"le dossier {} est déjà existant",
-      "wget done": "{} téléchargemé avec succès",
-      "cmd err": "commande inconnue ici -> {}",
-      "address err" : "adresse invalide ici -> {}",
-      "arg err": "argument inconnu ici -> {}",
-      "name err":"registre {} non trouvé dans les road"}
+fr = {
+"mkdir done":"dossier {} créé avec succès",
+"mkdir err":"le dossier {} est déjà existant",
+"wget done": "{} téléchargemé avec succès",
+"cmd err": "commande inconnue ici -> {}",
+"address err" : "adresse invalide ici -> {}",
+"arg err": "argument inconnu ici -> {}",
+"name err":"registre {} non trouvé dans les road",
+"help":
+"""
+~ ~ ~ ~ AIDE ~ ~ ~ ~
+- LANG
+    lang permet de saisir la langue de l'updater, en/fr
 
-en = {"mkdir done":"folder {} successfully created",
-      "mkdir err":"the folder {} is already existing",
-      "wget done": "{} successfully downloaded",
-      "cmd err": "unknown command here -> {}",
-      "address err" : "invalid address here -> {}",
-      "arg err": "unknown argument here -> {}",
-      "name err":"register {} not found in the road"}
+    lang <langue>
+    - lang en -
+
+- DL
+    dl permet de téléchargé un registre directement depuis son adresse
+
+    dl <chemin> <adresse>
+    - dl /main https://raw.githubusercontent.com/pf4-DEV/glade/main/update.txt -
+
+- ROAD
+    road permet de géré la liste des fichier de redirection:
+
+    - road list - affiche la liste
+    - road add - ajoute une adresse a la liste
+    - road del - supprime une adresse a la liste
+    - road read - lie les fichier de redirection
+
+- RDL
+    rdl téléchargé un registre depuis les fichier de redirection:
+
+    dl <chemin> + <nom>
+    - dl /main glade -"""}
+
+en = {
+"mkdir done":"folder {} successfully created",
+"mkdir err":"the folder {} is already existing",
+"wget done": "{} successfully downloaded",
+"cmd err": "unknown command here -> {}",
+"address err" : "invalid address here -> {}",
+"arg err": "unknown argument here -> {}",
+"name err":"register {} not found in the road",
+"help":
+"""~ ~ ~ ~ HELP ~ ~ ~ ~
+- LANG
+    lang allows you to enter the updater's language, en/fr
+
+    lang <language>
+    - lang en -
+
+- DL
+    dl allows you to download a register directly from its address
+
+    dl <path> <address>
+    - dl / main https://raw.githubusercontent.com/pf4-DEV/glade/main/update.txt -
+
+- ROAD
+    road allows you to manage the list of redirection files:
+
+    - road list - display the list
+    - road add - add an address to the list
+    - road del - remove an address from the list
+    - road read - link redirection files
+
+- RDL
+    rdl downloaded a registry from the redirect files: \
+
+    dl <path> + <name>
+    - dl / main glade -"""}
+
+
+
+
 
 lang = en
 
@@ -97,6 +158,8 @@ while True:
     elif commande == "dl":
         try: update(ipt[1],ipt[2])
         except: print(lang["address err"])
+    elif commande in ["help", "h"]:
+        print(lang["help"])
     elif commande in ["road", "r"]:
         if ipt[1] in ["list", "l"]:
             print(road)
