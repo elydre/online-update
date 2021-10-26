@@ -33,14 +33,16 @@ fr = {"mkdir done":"dossier {} créé avec succès",
       "wget done": "{} téléchargemé avec succès",
       "cmd err": "commande inconnue ici -> {}",
       "address err" : "adresse invalide",
-      "arg err": "argument inconnu ici -> {}"}
+      "arg err": "argument inconnu ici -> {}",
+      "name err":"registre {} non trouvé dans les road"}
 
 en = {"mkdir done":"folder {} successfully created",
       "mkdir err":"the folder {} is already existing",
       "wget done": "{} successfully downloaded",
       "cmd err": "unknown command here -> {}",
       "address err" : "invalid address",
-      "arg err": "unknown argument here -> {}"}
+      "arg err": "unknown argument here -> {}",
+      "name err":"register {} not found in the road"}
 
 lang = en
 
@@ -92,11 +94,27 @@ while True:
         try: update(ipt[1],ipt[2])
         except: print(lang["address err"])
     elif commande in ["road", "r"]:
-        if ipt[1] == "list":
+        if ipt[1] in ["list", "l"]:
             print(road)
-        elif ipt[1] == "add":
+        elif ipt[1] in ["add", "a"]:
             road.append(ipt[2])
-        elif ipt[1] == "del":
+        elif ipt[1] in ["del", "d"]:
             try: road.remove(ipt[2])
             except: print(lang["address err"])
+        elif ipt[1] in ["read", "r"]:
+            for r in road:
+                print(f"road: {r}")
+                for l in urlopen(r).read().decode("utf-8").split("\n"):
+                    print(f"  {l}")
         else: print(lang["arg err"].format(ipt[1]))
+    elif commande == "rdl":
+        done = False
+        for r in road:
+            for l in urlopen(r).read().decode("utf-8").split("\n"):
+                l = str(l).split(",")
+                if l[0] == ipt[2]:
+                    update(ipt[1],l[1].strip())
+                    done = True
+                    break
+        if not done: print(lang["name err"].format(ipt[2]))
+    else: print(lang["cmd err"].format(commande))
