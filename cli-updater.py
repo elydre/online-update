@@ -33,7 +33,7 @@ fr = {
 "mkdir err":"le dossier {} est déjà existant",
 "wget done": "{} téléchargemé avec succès",
 "cmd err": "commande inconnue ici -> {}",
-"address err" : "adresse invalide ici -> {}",
+"url err" : "url invalide ici -> {}",
 "arg err": "argument inconnu ici -> {}",
 "name err":"registre {} non trouvé dans les road",
 "help":
@@ -46,17 +46,17 @@ fr = {
     - lang en -
 
 - DL
-    dl permet de téléchargé un registre directement depuis son adresse
+    dl permet de téléchargé un registre directement depuis son url
 
-    dl <chemin> <adresse>
+    dl <chemin> <url>
     - dl /main https://raw.githubusercontent.com/pf4-DEV/glade/main/update.txt -
 
 - ROAD
     road permet de géré la liste des fichier de redirection:
 
     - road list - affiche la liste
-    - road add - ajoute une adresse a la liste
-    - road del - supprime une adresse a la liste
+    - road add - ajoute une url a la liste
+    - road del - supprime une url a la liste
     - road read - lie les fichier de redirection
 
 - RDL
@@ -70,7 +70,7 @@ en = {
 "mkdir err":"the folder {} is already existing",
 "wget done": "{} successfully downloaded",
 "cmd err": "unknown command here -> {}",
-"address err" : "invalid address here -> {}",
+"url err" : "invalid url here -> {}",
 "arg err": "unknown argument here -> {}",
 "name err":"register {} not found in the road",
 "help":
@@ -82,17 +82,17 @@ en = {
     - lang en -
 
 - DL
-    dl allows you to download a register directly from its address
+    dl allows you to download a register directly from its url
 
-    dl <path> <address>
+    dl <path> <url>
     - dl / main https://raw.githubusercontent.com/pf4-DEV/glade/main/update.txt -
 
 - ROAD
     road allows you to manage the list of redirection files:
 
     - road list - display the list
-    - road add - add an address to the list
-    - road del - remove an address from the list
+    - road add - add an url to the list
+    - road del - remove an url from the list
     - road read - link redirection files
 
 - RDL
@@ -100,10 +100,6 @@ en = {
 
     dl <path> + <name>
     - dl / main glade -"""}
-
-
-
-
 
 lang = en
 
@@ -115,11 +111,11 @@ def mkdir(chem, name):
         print(lang["mkdir done"].format(name))
     except FileExistsError: print(lang["mkdir err"].format(name))
 
-def wget(chem, name, address):
+def wget(chem, name, url):
     try:
-        open(PATH + chem + name, 'wb').write(urlopen(address).read())
+        open(PATH + chem + name, 'wb').write(urlopen(url).read())
         print(lang["wget done"].format(name))
-    except HTTPError: print(lang["address err"].format(address))
+    except HTTPError: print(lang["url err"].format(url))
 
 def mkchem(chem):
     dos = chem.split("/")
@@ -143,7 +139,7 @@ def update(chem, updfile):
                 wget(chem, arg[0],arg[1])
             elif commande != "":
                 print(lang["cmd err"].format(commande))
-    except HTTPError: print(lang["address err"].format(updfile))
+    except HTTPError: print(lang["url err"].format(updfile))
 
 # cli
 
@@ -157,7 +153,7 @@ while True:
         else: print(lang["arg err"].format(ipt[1]))
     elif commande == "dl":
         try: update(ipt[1],ipt[2])
-        except: print(lang["address err"])
+        except: print(lang["url err"])
     elif commande in ["help", "h"]:
         print(lang["help"])
     elif commande in ["road", "r"]:
@@ -167,7 +163,7 @@ while True:
             road.append(ipt[2])
         elif ipt[1] in ["del", "d"]:
             try: road.remove(ipt[2])
-            except: print(lang["address err"])
+            except: print(lang["url err"])
         elif ipt[1] in ["read", "r"]:
             for r in road:
                 print(f"road: {r}")
