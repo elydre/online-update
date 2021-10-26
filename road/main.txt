@@ -1,2 +1,3 @@
 glade, https://raw.githubusercontent.com/pf4-DEV/glade/main/update.txt
 I-python, https://raw.githubusercontent.com/passemblage/I-python-Public/main/fichier/update.txt
+wsl-statut, https://raw.githubusercontent.com/pf4-DEV/online-update/registre/wsl-statut.txt

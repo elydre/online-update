@@ -1,0 +1,1 @@
+wgt /wsl-statut.pyw https://raw.githubusercontent.com/pf4-DEV/pf4-DEV/main/mini%20projet/wsl-statut.pyw
