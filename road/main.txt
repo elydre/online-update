@@ -1,1 +1,2 @@
 glade, https://raw.githubusercontent.com/pf4-DEV/glade/main/update.txt
+I-python, https://raw.githubusercontent.com/passemblage/I-python-Public/main/fichier/update.txt
