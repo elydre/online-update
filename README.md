@@ -37,8 +37,8 @@ dl <chemin> + <nom>
 dl /main glade
 ```
 
-# Créé un registre d’update
-Le registre d’update différencie tout les dossier et fichier a créer et/ou télécharger.
+# Créer un registre d’update
+Le registre d’update différencie tout les dossier et fichier à créer et/ou télécharger.
 ## Création du dossier
 l’entièreté des chemin de fichier son en relatif par rapport a l’updater\
 La commande `mkd` suivit du nom du dossier a créé permet de créer un dossier:
@@ -64,7 +64,7 @@ wgt /system/glade/Compiler.py, https://raw.githubusercontent.com/pf4-DEV/glade/m
 ...
 ```
 
-# Créé un fichier de routage
+# Créer un fichier de routage
 
 le ficher de routage doit contenir le nom et d'adresse de redirection séparé par une virgule
 ```
