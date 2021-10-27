@@ -143,41 +143,45 @@ def update(chem, updfile):
 
 # cli
 
-while True:
-    ipt = input("~} ").split(" ")
-    for _ in range(10 - len(ipt)): ipt.append("")
-    commande = ipt[0]
-    if commande == "lang":
-        if ipt[1] == "en": lang = en
-        elif ipt[1] == "fr": lang = fr
-        else: print(lang["arg err"].format(ipt[1]))
-    elif commande == "dl":
-        try: update(ipt[1],ipt[2])
-        except: print(lang["url err"])
-    elif commande in ["help", "h"]:
-        print(lang["help"])
-    elif commande in ["road", "r"]:
-        if ipt[1] in ["list", "l"]:
-            print(road)
-        elif ipt[1] in ["add", "a"]:
-            road.append(ipt[2])
-        elif ipt[1] in ["del", "d"]:
-            try: road.remove(ipt[2])
+def run():   # sourcery no-metrics
+    while True:
+        ipt = input("~} ").split(" ")
+        for _ in range(10 - len(ipt)): ipt.append("")
+        commande = ipt[0]
+        if commande == "lang":
+            if ipt[1] == "en": lang = en
+            elif ipt[1] == "fr": lang = fr
+            else: print(lang["arg err"].format(ipt[1]))
+        elif commande == "dl":
+            try: update(ipt[1],ipt[2])
             except: print(lang["url err"])
-        elif ipt[1] in ["read", "r"]:
+        elif commande in ["help", "h"]:
+            print(lang["help"])
+        elif commande in ["road", "r"]:
+            if ipt[1] in ["list", "l"]:
+                print(road)
+            elif ipt[1] in ["add", "a"]:
+                road.append(ipt[2])
+            elif ipt[1] in ["del", "d"]:
+                try: road.remove(ipt[2])
+                except: print(lang["url err"])
+            elif ipt[1] in ["read", "r"]:
+                for r in road:
+                    print(f"road: {r}")
+                    for l in urlopen(r).read().decode("utf-8").split("\n"):
+                        print(f"  {l}")
+            else: print(lang["arg err"].format(ipt[1]))
+        elif commande == "rdl":
+            done = False
             for r in road:
-                print(f"road: {r}")
                 for l in urlopen(r).read().decode("utf-8").split("\n"):
-                    print(f"  {l}")
-        else: print(lang["arg err"].format(ipt[1]))
-    elif commande == "rdl":
-        done = False
-        for r in road:
-            for l in urlopen(r).read().decode("utf-8").split("\n"):
-                l = str(l).split(",")
-                if l[0] == ipt[2]:
-                    update(ipt[1],l[1].strip())
-                    done = True
-                    break
-        if not done: print(lang["name err"].format(ipt[2]))
-    else: print(lang["cmd err"].format(commande))
+                    l = str(l).split(",")
+                    if l[0] == ipt[2]:
+                        update(ipt[1],l[1].strip())
+                        done = True
+                        break
+            if not done: print(lang["name err"].format(ipt[2]))
+        else: print(lang["cmd err"].format(commande))
+
+if __name__ == "__main__":
+    run()
