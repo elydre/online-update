@@ -40,7 +40,7 @@ dl /main glade
 # Créer un registre d’update
 Le registre d’update différencie tout les dossier et fichier à créer et/ou télécharger.
 ## Création du dossier
-l’entièreté des chemin de fichier son en relatif par rapport a l’updater\
+l’entièreté des chemins de fichier son en relatif par rapport a l’updater\
 La commande `mkd` suivit du nom du dossier a créé permet de créer un dossier:
 ```
 mkd /mod
