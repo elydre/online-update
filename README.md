@@ -5,7 +5,7 @@ Le fichier `update.py` permet au créateur d’un programme de pré-configuré o
 Pour cela il suffit de modifier `updfile = None` à la ligne 22 par l’url du fichier d’update.\
 Il est aussi possible de modifier a langue de l’updater, français (fr) ou anglais (en) a la ligne 23.
 # Mode cli
-Le second fichier, `cli-update.py` affiche une interface cli permettant de saisir l’url des commandes.\
+Le second fichier, `cli-update.py` affiche une interface cli permettant de saisir l’url des commandes.
 ## Commandes
 
 ### LANG
