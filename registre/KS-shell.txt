@@ -9,6 +9,6 @@ wgt /kstream/parse.py, https://raw.githubusercontent.com/KEA-corp/KEA-stream/mai
 
 wgt /kea/kea.py, https://raw.githubusercontent.com/KEA-corp/simple-py/main/kea.py
 
-wget /ks_dep/bool.kea, https://raw.githubusercontent.com/KEA-corp/KS-dependencies/main/DEP/bool.kea
-wget /ks_dep/math.kea, https://raw.githubusercontent.com/KEA-corp/KS-dependencies/main/DEP/math.kea
-wget /ks_dep/uf.kea, https://raw.githubusercontent.com/KEA-corp/KS-dependencies/main/DEP/uf.kea
+wgt /ks_dep/bool.kea, https://raw.githubusercontent.com/KEA-corp/KS-dependencies/main/DEP/bool.kea
+wgt /ks_dep/math.kea, https://raw.githubusercontent.com/KEA-corp/KS-dependencies/main/DEP/math.kea
+wgt /ks_dep/uf.kea, https://raw.githubusercontent.com/KEA-corp/KS-dependencies/main/DEP/uf.kea
