@@ -3,3 +3,4 @@ I-python, https://raw.githubusercontent.com/passemblage/I-python-Public/main/fic
 wsl-statut, https://raw.githubusercontent.com/pf4-DEV/online-update/main/registre/wsl-statut.txt
 tt, https://raw.githubusercontent.com/pf4-DEV/terminal-tools/master/system/update.txt
 terminal-tools, https://raw.githubusercontent.com/pf4-DEV/terminal-tools/master/system/update.txt
+KS-shell, https://raw.githubusercontent.com/pf4-DEV/online-update/main/registre/KS-shell.txt

@@ -1,0 +1,7 @@
+mkd /kea
+mkd /kstream
+
+wgt /main.py, https://raw.githubusercontent.com/pf4-DEV/KS-shell/main/main.py
+wgt /kstream/decoupeur.py, https://raw.githubusercontent.com/KEA-corp/KEA-stream/main/kstream/decoupeur.py
+wgt /kstream/parse.py, https://raw.githubusercontent.com/KEA-corp/KEA-stream/main/kstream/parse.py
+wgt /kea/kea.py, https://raw.githubusercontent.com/KEA-corp/simple-py/main/kea.py
