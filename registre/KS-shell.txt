@@ -1,6 +1,7 @@
 mkd /kea
 mkd /kstream
 mkd /ks_dep
+mkd /mod
 
 wgt /main.py, https://raw.githubusercontent.com/pf4-DEV/KS-shell/main/main.py
 
@@ -8,6 +9,8 @@ wgt /kstream/decoupeur.py, https://raw.githubusercontent.com/KEA-corp/KEA-stream
 wgt /kstream/parse.py, https://raw.githubusercontent.com/KEA-corp/KEA-stream/main/kstream/parse.py
 
 wgt /kea/kea.py, https://raw.githubusercontent.com/KEA-corp/simple-py/main/kea.py
+
+wgt /mod/tools.py, https://raw.githubusercontent.com/pf4-DEV/KS-shell/main/mod/tools.py
 
 wgt /ks_dep/bool.kea, https://raw.githubusercontent.com/KEA-corp/KS-dependencies/main/DEP/bool.kea
 wgt /ks_dep/math.kea, https://raw.githubusercontent.com/KEA-corp/KS-dependencies/main/DEP/math.kea
